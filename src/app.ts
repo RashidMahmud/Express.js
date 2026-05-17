@@ -3,11 +3,10 @@ import express, {
   type Request,
   type Response,
 } from "express";
-import { Pool } from "pg";
+import { Pool } from "./db";
 import config from "./config";
 
 const app: Application = express();
-// const port = config.port;
 
 app.use(express.json());
 app.use(express.text());
@@ -37,18 +36,16 @@ export const initDB = async () => {
     console.log(error);
   }
 };
-initDB();
 
 app.get("/", (req: Request, res: Response) => {
-  //res.send("Hello World!");
-  res.status(200).json({
+
+    res.status(200).json({
     message: "Express Server",
     author: "Next Level",
   });
 });
 
 app.post("/api/users", async (req: Request, res: Response) => {
-  //   console.log(req.body);
   const { name, email, password, age } = req.body;
 
   try {
@@ -58,7 +55,6 @@ app.post("/api/users", async (req: Request, res: Response) => {
     `,
       [name, email, password, age],
     );
-    // console.log(result);
 
     res.status(201).json({
       success: true,
@@ -129,8 +125,6 @@ app.put("/api/users/:id", async (req: Request, res: Response) => {
   const { id } = req.params;
   const { name, password, age, is_active } = req.body;
 
-  // console.log("Id : ", id);
-  // console.log({ name, password, age, is_active });
 
   try {
     const result = await pool.query(
@@ -154,7 +148,6 @@ app.put("/api/users/:id", async (req: Request, res: Response) => {
       });
     }
 
-    // console.log(result);
     res.status(200).json({
       success: true,
       message: "User updated successfully!",

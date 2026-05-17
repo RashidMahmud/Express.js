@@ -27,3 +27,5 @@ const initDB = async () => {
   }
 };
 initDB();
+
+export { Pool };
