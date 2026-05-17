@@ -1,4 +1,4 @@
-// import express, {
+import express, {
   type Application,
   type Request,
   type Response,
