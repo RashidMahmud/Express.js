@@ -13,11 +13,11 @@ app.use(express.json());
 app.use(express.text());
 app.use(express.urlencoded({ extended: true }));
 
-const pool = new Pool({
+export const pool = new Pool({
   connectionString: config.connection_string,
 });
 
-const initDB = async () => {
+export const initDB = async () => {
   try {
     await pool.query(`
         CREATE TABLE IF NOT EXISTS users(
