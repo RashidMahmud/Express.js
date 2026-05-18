@@ -5,6 +5,7 @@ import express, {
 } from "express";
 import { Pool } from "./db";
 import config from "./config";
+import { userRoute } from "./modules/user/user.route";
 
 const app: Application = express();
 
@@ -38,12 +39,13 @@ export const initDB = async () => {
 };
 
 app.get("/", (req: Request, res: Response) => {
-
-    res.status(200).json({
+  res.status(200).json({
     message: "Express Server",
     author: "Next Level",
   });
 });
+
+app.use("/api/user", userRoute);
 
 app.post("/api/users", async (req: Request, res: Response) => {
   const { name, email, password, age } = req.body;
@@ -124,7 +126,6 @@ app.get("/api/users/:id", async (req: Request, res: Response) => {
 app.put("/api/users/:id", async (req: Request, res: Response) => {
   const { id } = req.params;
   const { name, password, age, is_active } = req.body;
-
 
   try {
     const result = await pool.query(
