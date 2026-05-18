@@ -3,7 +3,7 @@ import { pool } from "../../app";
 
 const router = Router();
 
-router.post("/api/users", async (req: Request, res: Response) => {
+router.post("/", async (req: Request, res: Response) => {
   const { name, email, password, age } = req.body;
 
   try {
@@ -28,4 +28,4 @@ router.post("/api/users", async (req: Request, res: Response) => {
   }
 });
 
-export const userRoute = router
+export const userRoute = router;
