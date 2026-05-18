@@ -11,14 +11,24 @@ const createUserIntoDB = async (payLoad: IUser) => {
   );
   return result;
 };
-const getAllUsersFromDB = async()=> {
-    const result = await pool.query(`
+const getAllUsersFromDB = async () => {
+  const result = await pool.query(`
       SELECT * FROM users  
         `);
-        return result;
-}
+  return result;
+};
+const getSingleUserFromDB = async (id: string) => {
+  const result = await pool.query(
+    `
+      SELECT * FROM users WHERE id=$1  
+        `,
+    [id],
+  );
+  return result;
+};
 
 export const userService = {
   createUserIntoDB,
-  getAllUsersFromDB
+  getAllUsersFromDB,
+  getSingleUserFromDB,
 };

@@ -1,5 +1,4 @@
 import type { Request, Response } from "express";
-import { pool } from "../../app";
 import { userService } from "./user-service";
 
 const createUser = async (req: Request, res: Response) => {
@@ -37,8 +36,35 @@ const getAllUsers = async (req: Request, res: Response) => {
     });
   }
 }
+const getSingleUser = async (req: Request, res: Response) => {
+  const { id } = req.params;
+  try {
+    const result = await userService.getSingleUserFromDB(id as string)
+
+    if (result.rows.length === 0) {
+      res.status(404).json({
+        success: false,
+        message: "User Not found!",
+        data: {},
+      });
+    }
+
+    res.status(200).json({
+      success: true,
+      message: "User retrived successfully!",
+      data: result.rows[0],
+    });
+  } catch (error: any) {
+    res.status(500).json({
+      success: false,
+      message: error.message,
+      error: error,
+    });
+  }
+}
 
 export const userController = {
   createUser,
   getAllUsers,
+  getSingleUser,
 };
