@@ -5,7 +5,7 @@ import express, {
 } from "express";
 import { Pool } from "./db";
 import config from "./config";
-import { userRoute } from "./modules/user/user.route";
+import { userRoute } from "./modules/user/user-route";
 
 const app: Application = express();
 

@@ -1,9 +1,7 @@
-import { Router, type Request, type Response } from "express";
+import type { Request, Response } from "express";
 import { pool } from "../../app";
 
-const router = Router();
-
-router.post("/", async (req: Request, res: Response) => {
+const createUser = async (req: Request, res: Response) => {
   const { name, email, password, age } = req.body;
 
   try {
@@ -26,6 +24,4 @@ router.post("/", async (req: Request, res: Response) => {
       error: error,
     });
   }
-});
-
-export const userRoute = router;
+};
