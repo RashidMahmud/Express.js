@@ -5,6 +5,6 @@ import { pool } from "../../app";
 const router = Router();
 
 router.post("/", userController.createUser);
-router.get("/api/users", );
+router.get("/api/users", userController.getAllUsers);
 
 export const userRoute = router;
