@@ -21,13 +21,15 @@ const loginUserIntoDB = async (payLoad: {
   if (!matchPassword) {
     throw new Error("Invalid Credentials!");
   }
-  const jwtpayLoad = {
+  const jwtpayload = {
     id: user.id,
     name: user.name,
     is_active: user.is_active,
     email: user.email,
   };
-  const accessToken = jwt.sign(jwtpayLoad, config.secret as string, { expiresIn: "1d", });
+  const accessToken = jwt.sign(jwtpayload, config.secret as string, {
+    expiresIn: "1d",
+  });
   return { accessToken };
 };
 
