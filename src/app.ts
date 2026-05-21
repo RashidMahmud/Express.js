@@ -9,14 +9,14 @@ import { userRoute } from "./modules/user/user-route";
 import { profileRoute } from "./modules/profile/profile-route";
 import { authRoute } from "./modules/auth/auth-route";
 import fs from "fs";
+import logger from "./middleware/logger";
 
 const app: Application = express();
 
 app.use(express.json());
 app.use(express.text());
 app.use(express.urlencoded({ extended: true }));
-
-app.use();
+app.use(logger);
 
 export const pool = new Pool({
   connectionString: config.connection_string,

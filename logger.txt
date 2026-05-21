@@ -4,3 +4,25 @@ Method -> GET - Time -> 1779288467027 - URL -> /
 Method -> GET - Time -> 1779288467966 - URL -> /
 
 Method -> GET - Time -> 1779288468567 - URL -> /
+
+Method -> GET - Time -> 1779288948424 - URL -> /
+
+Method -> GET - Time -> 1779288956382 - URL -> /api/user/15
+
+Method -> GET - Time -> 1779289137593 - URL -> /api/users
+
+Method -> GET - Time -> 1779289150592 - URL -> /api/users
+
+Method -> GET - Time -> 1779289208868 - URL -> /api/users
+
+Method -> GET - Time -> 1779289209742 - URL -> /api/users
+
+Method -> GET - Time -> 1779289221999 - URL -> /api/users
+
+Method -> GET - Time -> 1779289435572 - URL -> /api/users
+
+Method -> GET - Time -> 1779289448135 - URL -> /api/users
+
+Method -> GET - Time -> 1779289454071 - URL -> /api/user
+
+Method -> GET - Time -> 1779289473841 - URL -> /api/users
