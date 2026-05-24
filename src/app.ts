@@ -3,7 +3,7 @@ import express, {
   type Request,
   type Response,
 } from "express";
-import { Pool } from "./db";
+import { Pool } from "pg";
 import config from "./config";
 import { userRoute } from "./modules/user/user-route";
 import { profileRoute } from "./modules/profile/profile-route";
