@@ -1,7 +1,8 @@
 export interface IUser {
-  name: String;
-  email: String;
-  password: String;
+  name: string;
+  email: string;
+  password: string;
   age: number;
   is_active?: boolean;
+  role?: string; // admin,agent,user => Task
 }
